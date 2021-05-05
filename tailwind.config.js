@@ -7,12 +7,12 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    width: {
-      "28r": "28rem",
-    },
     extend: {
       colors: {
         bluegray: colors.blueGray,
+      },
+      width: {
+        "28r": "28rem",
       },
     },
   },

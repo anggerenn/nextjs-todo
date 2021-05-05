@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="flex w-screen h-screen text-gray-900 bg-bluegray-100">
+      <div className="flex">
         <div className="pt-12 mx-auto ">
           <Nav />
           <div className="mt-10">
