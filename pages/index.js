@@ -55,19 +55,23 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <h1>Next JS Todo</h1>
-      <TaskForm onSubmitTask={addTask} />
-      {tasks.length >= 1 ? (
-        <Tasks
-          tasks={tasks}
-          onDelete={deleteTask}
-          onToggleChecked={toggleChecked}
-          onUpdate={updateTask}
-        />
-      ) : (
-        ""
-      )}
-    </div>
+    <>
+      <h1 className="text-xl text-center">
+        Next JS <span className="font-semibold">Todo</span>
+      </h1>
+      <div className="flex flex-col h-full overflow-hidden">
+        <TaskForm onSubmitTask={addTask} />
+        {tasks.length >= 1 ? (
+          <Tasks
+            tasks={tasks}
+            onDelete={deleteTask}
+            onToggleChecked={toggleChecked}
+            onUpdate={updateTask}
+          />
+        ) : (
+          ""
+        )}
+      </div>
+    </>
   );
 }

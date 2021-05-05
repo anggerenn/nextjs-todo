@@ -13,10 +13,6 @@ const TaskForm = ({ onSubmitTask }) => {
     textRef.current.focus();
   }, []);
 
-  const handleClickCalendar = () => {
-    setShowDatePicker(!showDatePicker);
-  };
-
   const submitTask = (event) => {
     event.preventDefault();
 
@@ -36,28 +32,41 @@ const TaskForm = ({ onSubmitTask }) => {
   };
 
   return (
-    <form onSubmit={submitTask}>
+    <form
+      className="relative flex flex-row items-center mx-auto my-2"
+      onSubmit={submitTask}
+    >
       <input
         type="text"
+        className="w-64 pr-6 truncate"
         onChange={(event) => setText(event.target.value)}
+        // onClick={() => setShowDatePicker(false)}
+        onFocus={() => setShowDatePicker(false)}
         value={text}
         ref={textRef}
         placeholder="Add Task"
       />
       {!showDatePicker ? (
-        <Calendar onClick={handleClickCalendar} />
+        <div className="absolute top-50% right-0 p-1">
+          <Calendar
+            className="w-4 h-4 cursor-pointer"
+            onClick={() => setShowDatePicker(!showDatePicker)}
+          />
+        </div>
       ) : (
-        <>
-          <Calendar onClick={handleClickCalendar} />
-          <div>
-            <input
-              type="date"
-              onChange={(event) => setDay(event.target.value)}
-              value={day}
-              placeholder="Add Date"
-            />
-          </div>
-        </>
+        <div className="absolute top-50% right-0 p-1">
+          <Calendar
+            className="relative w-4 h-4 cursor-pointer"
+            onClick={() => setShowDatePicker(!showDatePicker)}
+          />
+          <input
+            className="absolute w-24 -inset-x-full top-6 input-calendar-picker"
+            type="date"
+            onChange={(event) => setDay(event.target.value)}
+            value={day}
+            placeholder="Add Date"
+          />
+        </div>
       )}
     </form>
   );
