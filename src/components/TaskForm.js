@@ -21,7 +21,7 @@ const TaskForm = ({ onSubmitTask }) => {
     }
 
     onSubmitTask({
-      id: Math.floor(Math.random() * 1000 + 1),
+      id: new Date().getTime(),
       text,
       day,
       checked: false,
