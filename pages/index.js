@@ -1,31 +1,32 @@
 import { useState } from "react";
 import Tasks from "../src/components/Tasks";
 import TaskForm from "../src/components/TaskForm";
+import { formatDate } from "../utils/formatDate";
 
 export default function Home() {
   const [tasks, setTasks] = useState([
     {
       id: 1,
       text: "Doctors Appointment",
-      day: "Feb 5th at 2:30pm",
+      day: formatDate(),
       checked: true,
     },
     {
       id: 2,
-      text: "Meeting at School",
-      day: "Feb 6th at 1:30pm",
+      text: "Meetup",
+      day: formatDate(),
       checked: true,
     },
     {
       id: 3,
       text: "Wash a Car",
-      day: "Feb 8th at 1:30pm",
+      day: formatDate(),
       checked: true,
     },
     {
       id: 4,
-      text: "Candle light dinner",
-      day: "Feb 12th at 1:30pm",
+      text: "Cook dinner",
+      day: formatDate(),
       checked: false,
     },
   ]);
